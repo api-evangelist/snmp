@@ -1,0 +1,206 @@
+name: SNMP Vocabulary
+description: >-
+  Normative vocabulary for the Simple Network Management Protocol (SNMP)
+  family — the architectural roles, protocol operations, data model
+  primitives, and security constructs defined across SNMPv1, SNMPv2c, and
+  SNMPv3. Terms are drawn from RFC 1157, RFC 1901-1908, RFC 3411-3418,
+  RFC 7860, and RFC 2863.
+version: '1.0'
+modified: '2026-05-23'
+sources:
+  - https://datatracker.ietf.org/doc/html/rfc1157
+  - https://datatracker.ietf.org/doc/html/rfc3411
+  - https://datatracker.ietf.org/doc/html/rfc3416
+  - https://datatracker.ietf.org/doc/html/rfc3414
+  - https://datatracker.ietf.org/doc/html/rfc3415
+  - https://datatracker.ietf.org/doc/html/rfc7860
+  - https://datatracker.ietf.org/doc/html/rfc2863
+  - https://www.iana.org/assignments/smi-numbers/smi-numbers.xhtml
+
+categories:
+
+  - name: Architectural Roles
+    description: Entities that participate in an SNMP management framework.
+    terms:
+      - term: Manager
+        definition: >-
+          The Network Management Station (NMS) that issues SNMP requests and
+          receives notifications from agents.
+      - term: Agent
+        definition: >-
+          Software running on a managed device that exposes management
+          variables and responds to SNMP requests on UDP port 161.
+      - term: SNMP Engine
+        definition: >-
+          The RFC 3411 SNMPv3 component that provides services for sending
+          and receiving messages, authenticating and encrypting messages,
+          and controlling access to managed objects.
+      - term: Dispatcher
+        definition: >-
+          The SNMPv3 sub-component that routes messages between the network
+          and the appropriate Message Processing Model.
+      - term: Message Processing Subsystem
+        definition: >-
+          The SNMPv3 component that prepares messages for sending and
+          extracts data from received messages, supporting multiple
+          versions concurrently (v1, v2c, v3).
+      - term: Security Subsystem
+        definition: >-
+          The SNMPv3 component that provides authentication and privacy
+          services for outgoing and incoming messages, typically
+          implemented by USM.
+      - term: Access Control Subsystem
+        definition: >-
+          The SNMPv3 component that determines whether access to a
+          managed object is allowed, typically implemented by VACM.
+      - term: Proxy Forwarder
+        definition: >-
+          An SNMP application that forwards requests, notifications, and
+          responses between SNMP engines on behalf of other entities.
+
+  - name: Protocol Operations (PDUs)
+    description: >-
+      The Protocol Data Units exchanged between manager and agent. The
+      modern set is defined in RFC 3416.
+    terms:
+      - term: GetRequest
+        definition: >-
+          Manager retrieves the values of one or more specified MIB
+          variables by OID.
+      - term: GetNextRequest
+        definition: >-
+          Manager retrieves the value of the next MIB variable in
+          lexicographic OID order, used for table walking in SNMPv1.
+      - term: GetBulkRequest
+        definition: >-
+          SNMPv2c/v3 PDU that efficiently retrieves large portions of a
+          MIB table in a single request, replacing repeated
+          GetNextRequest exchanges.
+      - term: SetRequest
+        definition: >-
+          Manager assigns new values to one or more writable MIB variables.
+      - term: Response
+        definition: >-
+          Agent reply to a Get/GetNext/GetBulk/Set/Inform request,
+          carrying variable bindings and error status. Called
+          GetResponse-PDU in RFC 1157.
+      - term: Trap
+        definition: >-
+          Unsolicited notification sent by an agent to a manager on
+          UDP port 162 to signal an event. SNMPv1 Trap-PDU and
+          SNMPv2-Trap-PDU differ in encoding.
+      - term: InformRequest
+        definition: >-
+          Acknowledged notification (manager-to-manager or
+          agent-to-manager) introduced in SNMPv2; the receiver must
+          send a Response.
+      - term: Report
+        definition: >-
+          Internal SNMPv3 PDU used to communicate engine-level
+          conditions such as unknown engineID or out-of-time-window
+          errors.
+
+  - name: Data Model Primitives
+    description: >-
+      The SMI (Structure of Management Information) constructs used to
+      define MIB modules.
+    terms:
+      - term: OID
+        definition: >-
+          Object Identifier — a hierarchical numeric name (e.g.
+          1.3.6.1.2.1.2.2.1.10) that uniquely identifies a managed
+          object within the global SMI tree.
+      - term: MIB Module
+        definition: >-
+          A specification written in SMI that declares a related
+          collection of managed objects with their syntax, access, and
+          status.
+      - term: MIB-II
+        definition: >-
+          The standard MIB-2 subtree rooted at 1.3.6.1.2.1, containing
+          system, interfaces, ip, tcp, udp, and other foundational
+          groups.
+      - term: ifTable
+        definition: >-
+          The original RFC 1213 / RFC 2863 table of interface entries,
+          one row per network interface on the device.
+      - term: ifXTable
+        definition: >-
+          The extended interfaces table from RFC 2863 adding 64-bit
+          counters and higher-speed support for modern interfaces.
+      - term: ifStackTable
+        definition: >-
+          RFC 2863 table describing the layering relationships between
+          interface sub-layers.
+      - term: ifType
+        definition: >-
+          IANA-maintained enumeration identifying interface technology
+          (ethernetCsmacd, softwareLoopback, propVirtual, etc.).
+      - term: Counter32 / Counter64
+        definition: >-
+          SMI types representing monotonically increasing
+          non-negative integers used for byte and packet counters.
+      - term: Gauge32
+        definition: >-
+          SMI type representing a non-negative integer that may
+          increase or decrease, used for instantaneous values like
+          interface speed or queue depth.
+      - term: TimeTicks
+        definition: >-
+          SMI type counting hundredths of a second since an event,
+          most commonly sysUpTime.
+
+  - name: Security and Access Control
+    description: SNMPv3 security model constructs.
+    terms:
+      - term: Community String
+        definition: >-
+          Plaintext authentication token used by SNMPv1 and SNMPv2c —
+          effectively a shared secret transmitted in the clear.
+        deprecated: true
+      - term: USM
+        definition: >-
+          User-based Security Model (RFC 3414) — SNMPv3's
+          authentication and privacy framework keyed on a user name
+          and engineID.
+      - term: VACM
+        definition: >-
+          View-based Access Control Model (RFC 3415) — controls which
+          subset of the MIB tree a given user/group can read or write.
+      - term: HMAC-SHA-2 Auth
+        definition: >-
+          The RFC 7860 authentication protocols (SHA-224, SHA-256,
+          SHA-384, SHA-512) that supersede the original MD5 and SHA-1
+          USM protocols.
+      - term: Privacy Protocol
+        definition: >-
+          USM encryption algorithm used to protect message payload
+          (historically DES, modernly AES per RFC 3826).
+
+  - name: Transport and Ports
+    description: SNMP transport mappings (RFC 3417).
+    terms:
+      - term: UDP/161
+        definition: Default agent port for receiving Get/Set requests.
+      - term: UDP/162
+        definition: Default port on the manager/trap receiver for incoming traps and informs.
+      - term: TLS / DTLS Transport
+        definition: >-
+          Optional transport mappings (RFC 6353 TLS/DTLS for SNMP)
+          providing message security at the transport layer.
+
+  - name: Registries
+    description: Authoritative IANA registries supporting SNMP deployment.
+    terms:
+      - term: SMI Numbers Registry
+        definition: >-
+          IANA registry of OID assignments under the
+          internet (1.3.6.1) subtree.
+      - term: Private Enterprise Numbers (PEN)
+        definition: >-
+          Per-organization OID branches under 1.3.6.1.4.1 used by
+          vendors to publish their own MIB modules.
+      - term: ifType Registry
+        definition: >-
+          IANA-maintained list of interface-type values referenced by
+          the IF-MIB ifType column.

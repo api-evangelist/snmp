@@ -1,0 +1,74 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "snmp": "https://api-evangelist.com/snmp/vocab#",
+    "rfc": "https://datatracker.ietf.org/doc/html/",
+    "iana": "https://www.iana.org/assignments/",
+
+    "Protocol": "snmp:Protocol",
+    "Specification": "snmp:Specification",
+    "Manager": "snmp:Manager",
+    "Agent": "snmp:Agent",
+    "Engine": "snmp:Engine",
+    "MIBModule": "snmp:MIBModule",
+    "ManagedObject": "snmp:ManagedObject",
+    "Trap": "snmp:Trap",
+    "Inform": "snmp:Inform",
+    "Community": "snmp:Community",
+    "User": "snmp:User",
+    "View": "snmp:View",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "version": "schema:version",
+    "identifier": "schema:identifier",
+    "publisher": "schema:publisher",
+    "datePublished": "schema:datePublished",
+
+    "oid": {
+      "@id": "snmp:oid",
+      "@type": "xsd:string"
+    },
+    "syntax": "snmp:syntax",
+    "access": "snmp:access",
+    "status": "snmp:status",
+    "module": {
+      "@id": "snmp:module",
+      "@type": "@id"
+    },
+    "rfcNumber": "snmp:rfcNumber",
+    "snmpVersion": "snmp:snmpVersion",
+
+    "pdu": "snmp:pdu",
+    "transport": "snmp:transport",
+    "port": "snmp:port",
+    "engineID": "snmp:engineID",
+    "securityModel": "snmp:securityModel",
+    "authProtocol": "snmp:authProtocol",
+    "privProtocol": "snmp:privProtocol",
+
+    "enterpriseNumber": {
+      "@id": "snmp:enterpriseNumber",
+      "@type": "xsd:integer"
+    },
+    "ifType": "snmp:ifType",
+
+    "specifiedBy": {
+      "@id": "snmp:specifiedBy",
+      "@type": "@id"
+    },
+    "implementedBy": {
+      "@id": "snmp:implementedBy",
+      "@type": "@id"
+    },
+    "obsoletes": {
+      "@id": "snmp:obsoletes",
+      "@type": "@id"
+    },
+    "updates": {
+      "@id": "snmp:updates",
+      "@type": "@id"
+    }
+  }
+}

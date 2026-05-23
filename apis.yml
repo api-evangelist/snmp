@@ -1,0 +1,168 @@
+aid: snmp
+name: SNMP
+description: >-
+  Simple Network Management Protocol (SNMP) is the foundational IETF standard
+  for monitoring and managing network devices. SNMP defines a request/response
+  protocol over UDP (ports 161 and 162) for retrieving and altering management
+  variables exposed by agents on routers, switches, servers, UPSs, and other
+  equipment, plus an asynchronous trap/notification channel for event delivery.
+  The protocol family spans three major generations — SNMPv1 (RFC 1157),
+  SNMPv2c (RFC 1901-1908), and the modular SNMPv3 architecture
+  (RFC 3411-3418, extended by RFC 7860 for HMAC-SHA-2 authentication) — and is
+  paired with the Structure of Management Information (SMI) and a vast catalog
+  of MIB modules, most notably the IF-MIB (RFC 2863) for network interfaces.
+  SNMP remains the lingua franca of network monitoring, consumed primarily by
+  NMS platforms such as Nagios, Zabbix, PRTG, SolarWinds, LibreNMS, and
+  Observium, and implemented in open source primarily by the Net-SNMP suite.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - SNMP
+  - Network Management
+  - Network Monitoring
+  - IETF
+  - Protocol
+  - MIB
+  - SMI
+  - OID
+  - Agents
+  - Traps
+  - UDP
+  - Operations
+url: https://raw.githubusercontent.com/api-evangelist/snmp/refs/heads/main/apis.yml
+created: '2025-01-01'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+apis:
+  - aid: snmp:snmpv1
+    name: SNMPv1 (RFC 1157)
+    description: >-
+      The original Simple Network Management Protocol defined in RFC 1157
+      (May 1990). Establishes the five core PDUs (GetRequest, GetNextRequest,
+      GetResponse, SetRequest, Trap), community-string authentication, ASN.1
+      message encoding, and UDP transport on ports 161 and 162. Now classified
+      as Historic by the IETF but still widely deployed on legacy equipment.
+    humanURL: https://datatracker.ietf.org/doc/html/rfc1157
+    tags:
+      - SNMPv1
+      - Community Strings
+      - PDU
+      - Historic
+    properties:
+      - type: Specification
+        url: https://datatracker.ietf.org/doc/html/rfc1157
+      - type: Documentation
+        url: https://datatracker.ietf.org/doc/rfc1157/
+  - aid: snmp:snmpv2c
+    name: SNMPv2c (RFC 1901-1908)
+    description: >-
+      Community-based SNMPv2, the most widely deployed version of SNMP in
+      production today. Adds the GetBulkRequest PDU for efficient table
+      retrieval and the InformRequest PDU for acknowledged notifications,
+      while retaining the community-string security model of SNMPv1.
+      RFC 3416 later republished the v2 protocol operations as part of the
+      SNMPv3 framework.
+    humanURL: https://datatracker.ietf.org/doc/html/rfc1901
+    tags:
+      - SNMPv2c
+      - GetBulk
+      - InformRequest
+      - Community Strings
+    properties:
+      - type: Specification
+        url: https://datatracker.ietf.org/doc/html/rfc1901
+      - type: Specification
+        url: https://datatracker.ietf.org/doc/html/rfc3416
+      - type: Documentation
+        url: https://datatracker.ietf.org/doc/rfc1901/
+  - aid: snmp:snmpv3
+    name: SNMPv3 Architecture (RFC 3411-3418)
+    description: >-
+      The modular SNMPv3 management framework. RFC 3411 defines the SNMP
+      engine, Message Processing Subsystem, Security Subsystem, and Access
+      Control Subsystem; RFC 3414 specifies the User-based Security Model
+      (USM) with authentication and privacy; RFC 3415 specifies the
+      View-based Access Control Model (VACM); RFC 3416 redefines protocol
+      operations; RFC 3417 covers transport mappings; RFC 3418 contains the
+      MIB for SNMPv3 itself. RFC 7860 extends USM with HMAC-SHA-2
+      authentication protocols.
+    humanURL: https://datatracker.ietf.org/doc/html/rfc3411
+    tags:
+      - SNMPv3
+      - USM
+      - VACM
+      - Security
+      - Authentication
+      - Privacy
+    properties:
+      - type: Specification
+        url: https://datatracker.ietf.org/doc/html/rfc3411
+      - type: Specification
+        url: https://datatracker.ietf.org/doc/html/rfc3412
+      - type: Specification
+        url: https://datatracker.ietf.org/doc/html/rfc3414
+      - type: Specification
+        url: https://datatracker.ietf.org/doc/html/rfc3415
+      - type: Specification
+        url: https://datatracker.ietf.org/doc/html/rfc3416
+      - type: Specification
+        url: https://datatracker.ietf.org/doc/html/rfc3417
+      - type: Specification
+        url: https://datatracker.ietf.org/doc/html/rfc3418
+      - type: Specification
+        url: https://datatracker.ietf.org/doc/html/rfc7860
+  - aid: snmp:if-mib
+    name: IF-MIB (RFC 2863) — The Interfaces Group MIB
+    description: >-
+      The canonical SNMP MIB module for network interface management,
+      published June 2000. Defines ifTable, ifXTable, ifStackTable, and
+      ifRcvAddressTable, plus the ifType enumeration registered by IANA.
+      Universally implemented by routers, switches, NICs, and operating
+      systems; the most-polled MIB in production network monitoring.
+    humanURL: https://datatracker.ietf.org/doc/html/rfc2863
+    tags:
+      - IF-MIB
+      - MIB
+      - Interfaces
+      - ifTable
+      - ifXTable
+    properties:
+      - type: Specification
+        url: https://datatracker.ietf.org/doc/html/rfc2863
+      - type: Documentation
+        url: https://www.iana.org/assignments/ianaiftype-mib/ianaiftype-mib
+  - aid: snmp:smi
+    name: SMI and the OID Tree
+    description: >-
+      Structure of Management Information — the data definition language
+      and naming scheme that every MIB module is written against. The IANA
+      SMI Numbers registry administers the OID hierarchy rooted at
+      1.3.6.1, including standard MIBs under 1.3.6.1.2.1 and Private
+      Enterprise Numbers under 1.3.6.1.4.1 (the namespace organizations
+      use to publish their own MIBs).
+    humanURL: https://www.iana.org/assignments/smi-numbers/smi-numbers.xhtml
+    tags:
+      - SMI
+      - OID
+      - IANA
+      - Enterprise Numbers
+      - PEN
+    properties:
+      - type: Documentation
+        url: https://www.iana.org/assignments/smi-numbers/smi-numbers.xhtml
+      - type: Documentation
+        url: https://www.iana.org/assignments/enterprise-numbers/
+common:
+  - type: Website
+    url: https://datatracker.ietf.org/wg/opsawg/about/
+  - type: Specification
+    url: https://datatracker.ietf.org/doc/html/rfc3411
+  - type: Documentation
+    url: https://www.net-snmp.org/
+  - type: SourceCode
+    url: https://github.com/net-snmp/net-snmp
+  - type: Registry
+    url: https://www.iana.org/assignments/smi-numbers/smi-numbers.xhtml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
