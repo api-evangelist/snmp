@@ -15,7 +15,7 @@ description: >-
   NMS platforms such as Nagios, Zabbix, PRTG, SolarWinds, LibreNMS, and
   Observium, and implemented in open source primarily by the Net-SNMP suite.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - SNMP
   - Network Management
