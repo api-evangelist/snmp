@@ -39,6 +39,18 @@ tags:
   - Agents
   - Traps
   - UDP
+tags_raw:
+  - SNMP
+  - Network Management
+  - Network Monitoring
+  - IETF
+  - Protocol
+  - MIB
+  - SMI
+  - OID
+  - Agents
+  - Traps
+  - UDP
   - Operations
 url: https://raw.githubusercontent.com/api-evangelist/snmp/refs/heads/main/apis.yml
 created: '2025-01-01'
