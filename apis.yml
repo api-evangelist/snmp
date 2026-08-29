@@ -15,6 +15,17 @@ description: >-
   NMS platforms such as Nagios, Zabbix, PRTG, SolarWinds, LibreNMS, and
   Observium, and implemented in open source primarily by the Net-SNMP suite.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -176,6 +187,8 @@ apis:
       - type: Documentation
         url: https://www.iana.org/assignments/enterprise-numbers/
 common:
+  - type: IssueTracker
+    url: https://github.com/net-snmp/net-snmp/issues
   - type: DomainSecurity
     url: security/snmp-domain-security.yml
   - type: Website
