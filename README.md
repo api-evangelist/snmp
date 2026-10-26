@@ -1,0 +1,182 @@
+# SNMP (snmp)
+
+<!-- API-EVANGELIST-PROVENANCE:BEGIN -->
+> ### About this repository
+>
+> **This is not our API.** This repository is an independent, third-party profile of a company's
+> **publicly available** API surface, maintained by [API Evangelist](https://apievangelist.com).
+> API Evangelist does not operate, host, resell, or support this company's APIs, and is not
+> affiliated with or endorsed by the company unless stated on the profile.
+>
+> **Where the information came from.** Everything here is assembled from material a member of the
+> public can reach with a browser and no credentials — the company's own website, developer portal
+> and documentation, the specifications it publishes for public use (OpenAPI, AsyncAPI, JSON Schema,
+> `apis.json`, `llms.txt` and similar), its public repositories, and its public status, pricing and
+> changelog pages. **Nothing here is obtained by breaching a system, defeating an access control, or
+> using credentials of any kind.**
+>
+> **The rating is an independent assessment.** The Kin Score and Agent Readiness rating are
+> independently calculated scores of a company's *public* API artifacts, produced by API Evangelist
+> against a published rubric. They are not certifications, endorsements, security assessments, or
+> audits, and they score published artifacts — not the quality, safety, or security of the software.
+>
+> **Corrections, re-scores, and removal are free.** No partnership, contract, or purchase is
+> required, and you do not need to justify the request.
+>
+> - **Something wrong?** Open an issue on this repository, or email
+>   [info@apievangelist.com](mailto:info@apievangelist.com).
+> - **Published something new?** Ask for a re-score and we will re-run the rating.
+> - **Want the listing taken down?** Say so and we will honor it. The profile is reduced to your
+>   company name, a factual description, and a link to your own site, and the company is recorded as
+>   **unrated** — never scored zero for having asked.
+>
+> **Response times.** Acknowledgement within **one business day**; removal or restriction within
+> **two business days**; corrections and re-scores within **five business days**.
+>
+> **Not from the company, and here with a question?** You are welcome here — we would rather be the
+> front line and point you the right way than have a good report go nowhere. What this repository
+> can answer is narrow, though, so it is worth knowing who you are actually looking for:
+>
+> - **A question about how the API works, an account, billing, or a bug in the service** — that is
+>   the company's own support, not us. We profile this API; we do not operate it and cannot see
+>   your account.
+> - **A bug in an open-source project we only catalog** — file it on that project's own repository.
+>   This has happened with a real and correct bug report that reached us instead of the people who
+>   could fix it, which helped nobody.
+> - **Anything about this listing itself** — the description, the tags, the rating, a missing or
+>   wrong artifact — is ours. Open an issue here.
+> - **Not sure, or something general about API Evangelist or APIs.io** — open an issue on the
+>   [APIs.io Inbox](https://github.com/api-search/inbox) and we will route it.
+>
+> **This repository contains no software, and we will never ask you to download anything.** There is
+> no build, release, installer, or binary here — only text and machine-readable API descriptions, so
+> there is nothing here that can be "corrupt" or need "repairing". Any issue, comment, or email
+> claiming otherwise and offering a download link is not from us and is hostile. Do not follow the
+> link; it is a lure. Report it to GitHub and, if you like, tell us at
+> [info@apievangelist.com](mailto:info@apievangelist.com) so we can take it down.
+>
+> **On a security or compliance team?** Email
+> [info@apievangelist.com](mailto:info@apievangelist.com) with *security* in the subject line and
+> you will get a person, not a form. We will tell you exactly which public URLs this profile was
+> built from so your team can see the same surface we did, and we will take the listing down on
+> request while you work through it.
+>
+> Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
+<!-- API-EVANGELIST-PROVENANCE:END -->
+
+Simple Network Management Protocol (SNMP) is the foundational IETF standard for monitoring and managing network devices. SNMP defines a request/response protocol over UDP (ports 161 and 162) for retrieving and altering management variables exposed by agents on routers, switches, servers, UPSs, and other equipment, plus an asynchronous trap/notification channel for event delivery. The protocol family spans three major generations — SNMPv1 (RFC 1157), SNMPv2c (RFC 1901-1908), and the modular SNMPv3 architecture (RFC 3411-3418, extended by RFC 7860 for HMAC-SHA-2 authentication) — and is paired with the Structure of Management Information (SMI) and a vast catalog of MIB modules, most notably the IF-MIB (RFC 2863) for network interfaces. SNMP remains the lingua franca of network monitoring, consumed primarily by NMS platforms such as Nagios, Zabbix, PRTG, SolarWinds, LibreNMS, and Observium, and implemented in open source primarily by the Net-SNMP suite.
+
+**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/snmp/refs/heads/main/apis.yml)
+
+## Scope
+
+- **Type:** Index
+- **Position:** Consuming
+- **Access:** 3rd-Party
+
+## Tags
+
+SNMP, Network Management, Network Monitoring, IETF, Protocol, MIB, SMI, OID, Agents, Traps, UDP, Operations
+
+## Timestamps
+
+- **Created:** 2025-01-01
+- **Modified:** 2026-05-23
+
+## APIs
+
+### SNMPv1 (RFC 1157)
+The original Simple Network Management Protocol defined in RFC 1157 (May 1990). Establishes the five core PDUs (GetRequest, GetNextRequest, GetResponse, SetRequest, Trap), community-string authentication, ASN.1 message encoding, and UDP transport on ports 161 and 162. Now classified as Historic by the IETF but still widely deployed on legacy equipment.
+
+**Human URL:** [https://datatracker.ietf.org/doc/html/rfc1157](https://datatracker.ietf.org/doc/html/rfc1157)
+
+#### Tags
+
+SNMPv1, Community Strings, PDU, Historic
+
+#### Properties
+
+- [Specification](https://datatracker.ietf.org/doc/html/rfc1157)
+- [Documentation](https://datatracker.ietf.org/doc/rfc1157/)
+
+### SNMPv2c (RFC 1901-1908)
+Community-based SNMPv2, the most widely deployed version of SNMP in production today. Adds the GetBulkRequest PDU for efficient table retrieval and the InformRequest PDU for acknowledged notifications, while retaining the community-string security model of SNMPv1. RFC 3416 later republished the v2 protocol operations as part of the SNMPv3 framework.
+
+**Human URL:** [https://datatracker.ietf.org/doc/html/rfc1901](https://datatracker.ietf.org/doc/html/rfc1901)
+
+#### Tags
+
+SNMPv2c, GetBulk, InformRequest, Community Strings
+
+#### Properties
+
+- [Specification (RFC 1901)](https://datatracker.ietf.org/doc/html/rfc1901)
+- [Specification (RFC 3416)](https://datatracker.ietf.org/doc/html/rfc3416)
+- [Documentation](https://datatracker.ietf.org/doc/rfc1901/)
+
+### SNMPv3 Architecture (RFC 3411-3418)
+The modular SNMPv3 management framework. RFC 3411 defines the SNMP engine, Message Processing Subsystem, Security Subsystem, and Access Control Subsystem; RFC 3414 specifies the User-based Security Model (USM) with authentication and privacy; RFC 3415 specifies the View-based Access Control Model (VACM); RFC 3416 redefines protocol operations; RFC 3417 covers transport mappings; RFC 3418 contains the MIB for SNMPv3 itself. RFC 7860 extends USM with HMAC-SHA-2 authentication protocols.
+
+**Human URL:** [https://datatracker.ietf.org/doc/html/rfc3411](https://datatracker.ietf.org/doc/html/rfc3411)
+
+#### Tags
+
+SNMPv3, USM, VACM, Security, Authentication, Privacy
+
+#### Properties
+
+- [Specification — RFC 3411 (Architecture)](https://datatracker.ietf.org/doc/html/rfc3411)
+- [Specification — RFC 3412 (Message Processing)](https://datatracker.ietf.org/doc/html/rfc3412)
+- [Specification — RFC 3414 (USM)](https://datatracker.ietf.org/doc/html/rfc3414)
+- [Specification — RFC 3415 (VACM)](https://datatracker.ietf.org/doc/html/rfc3415)
+- [Specification — RFC 3416 (Protocol Operations v2)](https://datatracker.ietf.org/doc/html/rfc3416)
+- [Specification — RFC 3417 (Transport Mappings)](https://datatracker.ietf.org/doc/html/rfc3417)
+- [Specification — RFC 3418 (SNMPv3 MIB)](https://datatracker.ietf.org/doc/html/rfc3418)
+- [Specification — RFC 7860 (HMAC-SHA-2 Auth)](https://datatracker.ietf.org/doc/html/rfc7860)
+
+### IF-MIB (RFC 2863) — The Interfaces Group MIB
+The canonical SNMP MIB module for network interface management, published June 2000. Defines ifTable, ifXTable, ifStackTable, and ifRcvAddressTable, plus the ifType enumeration registered by IANA. Universally implemented by routers, switches, NICs, and operating systems; the most-polled MIB in production network monitoring.
+
+**Human URL:** [https://datatracker.ietf.org/doc/html/rfc2863](https://datatracker.ietf.org/doc/html/rfc2863)
+
+#### Tags
+
+IF-MIB, MIB, Interfaces, ifTable, ifXTable
+
+#### Properties
+
+- [Specification](https://datatracker.ietf.org/doc/html/rfc2863)
+- [ifType Registry](https://www.iana.org/assignments/ianaiftype-mib/ianaiftype-mib)
+
+### SMI and the OID Tree
+Structure of Management Information — the data definition language and naming scheme that every MIB module is written against. The IANA SMI Numbers registry administers the OID hierarchy rooted at 1.3.6.1, including standard MIBs under 1.3.6.1.2.1 and Private Enterprise Numbers under 1.3.6.1.4.1 (the namespace organizations use to publish their own MIBs).
+
+**Human URL:** [https://www.iana.org/assignments/smi-numbers/smi-numbers.xhtml](https://www.iana.org/assignments/smi-numbers/smi-numbers.xhtml)
+
+#### Tags
+
+SMI, OID, IANA, Enterprise Numbers, PEN
+
+#### Properties
+
+- [SMI Numbers Registry](https://www.iana.org/assignments/smi-numbers/smi-numbers.xhtml)
+- [Private Enterprise Numbers](https://www.iana.org/assignments/enterprise-numbers/)
+
+## Common Properties
+
+- [IETF OPSAWG Working Group](https://datatracker.ietf.org/wg/opsawg/about/)
+- [RFC 3411 — SNMPv3 Architecture](https://datatracker.ietf.org/doc/html/rfc3411)
+- [Net-SNMP Project](https://www.net-snmp.org/)
+- [Net-SNMP Source Code](https://github.com/net-snmp/net-snmp)
+- [IANA SMI Numbers Registry](https://www.iana.org/assignments/smi-numbers/smi-numbers.xhtml)
+
+## Artifacts
+
+- **Vocabulary:** [vocabulary/snmp-vocabulary.yml](vocabulary/snmp-vocabulary.yml) — normative SNMP terminology drawn from RFCs 1157, 1901-1908, 3411-3418, 7860, and 2863
+- **JSON-LD Context:** [json-ld/snmp-context.jsonld](json-ld/snmp-context.jsonld) — linked-data context mapping SNMP concepts (Engine, MIBModule, ManagedObject, OID, PDU, etc.) onto schema.org and the SNMP vocabulary
+
+## Maintainers
+
+**FN:** Kin Lane
+
+**Email:** kin@apievangelist.com
